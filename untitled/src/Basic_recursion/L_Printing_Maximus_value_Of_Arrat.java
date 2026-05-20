@@ -4,19 +4,17 @@ import java.util.Scanner;
 
 public class L_Printing_Maximus_value_Of_Arrat {
 
-    public static int findingMax(int[] arr , int n)
-    {
-        if(n<0) return arr[0];
+    public static int printingRecursivly(int[] arr, int n) {
 
-        int max  = Integer.MIN_VALUE;
-        for (int i = 0 ; i<n ; i++)
-        {
-            if(arr[i]>max)
-            {
-                max = arr[i];
-            }
+        if(n==arr.length-1) {
+            return arr[n];
         }
-        return findingMax(arr,n-1);
+
+
+        int small = printingRecursivly(arr,n+1);
+
+        return Math.max(small,arr[n]);
+
     }
 
 
@@ -35,7 +33,7 @@ public class L_Printing_Maximus_value_Of_Arrat {
         }
         int length = arr.length-1;
 
-        int max = findingMax(arr,length);
+        int max = printingRecursivly(arr,length);
 
         System.out.println(max);
 
